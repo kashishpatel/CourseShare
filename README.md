@@ -7,6 +7,13 @@ File sharing and collaboration tool built with Ruby on Rails targeted towards co
 * [Technologies](#technologies)
 * [Demo](#demo)
 
+## Selected Features
+* Private Dropbox for Each User to Upload Files
+* Folders to Organize and Seperate Files by Course or Project
+* Share Files or Folders to Other Users By Email Invitation
+* Fully Featured Admin Panel For Complete Control Over Site Adminstration
+
+
 ## Link and User Logins
 
 **[Link to Live Site](https://young-fjord-81368.herokuapp.com/)**
@@ -16,12 +23,6 @@ Account Type | Email | Password
 **Admin** | abc@def.com | admin123456
 **Guest** |  def@ghi.com | 123456
 **User** |  jkl@mno.com | 123456
-
-## Selected Features
-* Private Dropbox for Each User to Upload Files
-* Folders to Organize and Seperate Files by Course or Project
-* Share Files or Folders to Other Users By Email Invitation
-* Fully Featured Admin Panel For Complete Control Over Site Adminstration
 
 ## Technologies
 
