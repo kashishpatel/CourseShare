@@ -37,4 +37,4 @@ Area | Technology
 **Deployement** |  Heroku
 
 ## Demo
-<div style="width:100%;height:0px;position:relative;padding-bottom:70.381%;"><iframe src="https://streamable.com/e/fwo332?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+[![Live Demo of App](https://images2.imgbox.com/0c/71/acqxXQFJ_o.png)](https://streamable.com/fwo332 "Live Demo of App - Click to Watch!")
