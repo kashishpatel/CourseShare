@@ -2,8 +2,9 @@
 File sharing and collaboration tool built with Ruby on Rails targeted towards college students. 
 
 
-* [Link to Live Site](https://young-fjord-81368.herokuapp.com/) 
+* [Link to Site](https://young-fjord-81368.herokuapp.com/) 
 * [Features](#selected-features)
+* [User Logins](#user-logins)
 * [Technologies](#technologies)
 * [Demo](#demo)
 
@@ -14,7 +15,7 @@ File sharing and collaboration tool built with Ruby on Rails targeted towards co
 * Fully Featured Admin Panel For Complete Control Over Site Adminstration
 
 
-## Link and User Logins
+## User Logins
 
 **[Link to Live Site](https://young-fjord-81368.herokuapp.com/)**
 
