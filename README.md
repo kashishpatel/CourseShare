@@ -1,6 +1,5 @@
 # CourseShare 
-File sharing and collaboration tool built with Ruby on Rails targeted towards college students. 
-
+File sharing and collaboration tool targeted towards college students meant to make group projects easier!
 
 * [Link to Site](https://young-fjord-81368.herokuapp.com/) 
 * [Features](#selected-features)
@@ -38,4 +37,4 @@ Area | Technology
 **Deployement** |  Heroku
 
 ## Demo
-Link TBD
+<div style="width:100%;height:0px;position:relative;padding-bottom:70.381%;"><iframe src="https://streamable.com/e/fwo332?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
