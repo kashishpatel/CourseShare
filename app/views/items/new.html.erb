@@ -1,0 +1,37 @@
+<%= render :partial => "home/breadcrumbs" %>
+
+<% if !@item.errors.empty? %>
+   <div class = "alert alert-error">
+      <ul>
+         <% @item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+      
+   </div>
+<% end %>
+<div class="panel panel-default devise-bs">
+  <div class="panel-heading">
+    <h4>New Item</h4>
+  </div>
+  <div class="panel-body">
+      <div class = "newForm">
+         <%= form_for @item, html: { multipart: true} do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %><br/><br/>
+            <%= f.hidden_field :folder_id %> 
+            <%= f.label(:attachment, class: "hidden") %>
+            <%= f.file_field(:attachment)%>
+            <br/>
+            <%= f.submit "Upload", class: "btn btn-primary" %>
+         <% end %>
+      </div>
+   </div>   
+</div>
+<p> 
+<% if @item.folder %> 
+   <%= link_to "Back to '#{@item.folder.name}' Folder", browse_path(@item.folder) %> 
+<% else %> 
+   <%= link_to "Back", root_url %> 
+<% end %> 
+</p>

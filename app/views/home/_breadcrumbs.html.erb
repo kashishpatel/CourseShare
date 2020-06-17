@@ -1,0 +1,11 @@
+<div class="breadcrumb">         
+    <% if @current_folder #checking if we are under any folder %> 
+        <li class="breadcrumb-item"><%= link_to "Home", root_url %></li>
+        <% @current_folder.ancestors.reverse.each do |folder| %> 
+            <li class="breadcrumb-item"><%= link_to folder.name, browse_path(folder) %> </li>
+        <% end %>  
+        <li class="breadcrumb-item active"><%= @current_folder.name %></li>
+    <% else #if we are not under any folder%> 
+        Home 
+    <% end %> 
+</div>

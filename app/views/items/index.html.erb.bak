@@ -1,0 +1,41 @@
+<!--<h1>Items#index</h1>-->
+<!--<p>Find me in app/views/items/index.html.erb</p>-->
+
+<table class = "table table-bordered table-striped">
+   <thead align="center">
+      <tr>
+         <th>Type</th>
+         <th>Name</th>
+         <th>Size</th>
+         <th>Modified</th>
+         <th></th>
+         <th></th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% current_user.folders.each do |folder| %> 
+         <tr>
+            <td align="center" class="folder"></td>
+            <td align="center"> <%= link_to folder.name, folder_path(folder) %></td>
+            <td align="center"> - </td>
+            <td align="center"> - </td> 
+            <td align="center"> - </td>
+            <td align="center"><%= button_to "Delete",  folder, method: :delete, class: "btn btn-danger", data:{confirm: "Are you sure that you wish to delete #{folder.name}?"} %></td>
+         </tr> 
+      <% end %> 
+      <% @items.each do |item| %>
+         <tr>
+            <td align="center" class="file"></td>
+            <td align="center"><%= item.attachment.file.filename %></td>
+            <td align="center"><%= number_to_human_size(item.attachment.size, :precision => 2) %></td>
+            <td align="center"><%= item.updated_at %></td>
+            <td align="center"><div class='btn btn-default'><%= link_to "Download", item.attachment_url %></div></td>
+            <td align="center"><%= button_to "Delete",  item, method: :delete, class: "btn btn-danger", data:{confirm: "Are you sure that you wish to delete #{item.attachment.file.filename}?"} %></td>
+         </tr>
+      <% end %>
+   </tbody>
+</table>
+
+
+

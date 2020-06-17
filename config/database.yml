@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: my_database_development
+  template: template0
+  pool: 5
+  timeout: 5000
+test:
+  adapter: postgresql
+  database: my_database_test
+  template: template0
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: my_database_production
+  template: template0
+  pool: 5
+  timeout: 5000

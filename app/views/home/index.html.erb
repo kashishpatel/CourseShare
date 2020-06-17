@@ -1,0 +1,116 @@
+<!--<h1>Items#index</h1>-->
+<!--<p>Find me in app/views/items/index.html.erb</p>-->
+<%= render :partial => "breadcrumbs" %>
+<table class = "table table-striped">
+   <thead>
+      <tr>
+         <th>Type</th>
+         <th>Course</th>
+         <th>Name</th>
+         <th>Size</th>
+         <th>Modified</th>
+         <th></th>
+         <th></th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @being_shared_folders.each do |folder|%> 
+         <tr>
+            <td class="folder asset_details <%= folder.shared? ? 'shared_folder' : 'folder' %>" id="folder_<%= folder.id %>"></td>
+            <td> <%= folder.course %> </td>
+            <td> <%= link_to folder.name, browse_path(folder) %></td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td> 
+            <td> - </td>
+            <td> Shared </td>
+            </div>
+         </tr> 
+      <% end %> 
+      <% @folders.each do |folder| %> 
+         <tr>
+            <div class="asset_details <%= folder.shared? ? 'shared_folder' : 'folder' %>" id="folder_<%= folder.id %>">
+            <td class="folder"></td>
+            <td> <%= folder.course %> </td>
+            <td> <%= link_to folder.name, browse_path(folder) %></td>
+            <td> - </td>
+            <td> - </td>
+            <% if folder.user_id == current_user.id && !current_user.guest?%>
+            <td><span onclick="location.reload();"><%= link_to "Share", "#", :folder_id => folder.id, :folder_name => folder.name, :controller => "home", :action => "share", class:"ui-button ui-corner-all ui-widget", id:"share"%></span></td> 
+            <td><%= link_to "Edit", edit_folder_path(folder), class: "btn btn-primary btn-sm"%> </td>
+            <td><%= button_to "Delete",  folder, method: :delete, class: "btn btn-danger btn-sm", data:{confirm: "Are you sure that you wish to delete #{folder.name}?"} %></td>
+            <% else %>
+               <td> - </td>
+               <td> - </td>
+               <% if !current_user.guest?%>
+                  <% if folder.user_id != current_user.id%>
+                     <td> Shared </td>
+                  <% end %>
+               <% end %>
+               <% if current_user.guest?%>
+                  <% if folder.user_id != current_user.id %>
+                     <td> Shared </td>
+                  <% else %>
+                     <td> Guest </td>
+                  <% end %>
+               <% end %>
+            <% end %>
+            </div>
+         </tr> 
+         
+      <% end %> 
+      <% if @current_folder.nil? == false%>
+         <% @current_folder.items.each do |item| %>
+            <tr>
+               <td class="file"></td>
+               <td><%= item.folder.course %> </td>
+               <td><%= item.name + " (" + item.attachment.file.filename + ")" %></td>
+               <td><%= number_to_human_size(item.attachment.size, :precision => 2) %></td>
+               <td><%= item.updated_at %></td>
+               <td> - </td>
+               <td><%= button_to "Download", item.attachment_url, :method => "get", class: "btn btn-success btn-sm" %></td>
+               <% if @current_folder.user_id == current_user.id && !current_user.guest? %>
+                  <td><%= button_to "Delete",  item, method: :delete, class: "btn btn-danger btn-sm", data:{confirm: "Are you sure that you wish to delete #{item.attachment.file.filename}?"} %></td>
+               <% else %>
+                  <% if !current_user.guest? %>
+                     <td> Shared </td>
+                  <% else %>
+                     <td> - </td>
+                  <% end %>
+               <% end %>
+            </tr>
+         <% end %>
+      <% elsif @current_folder.nil? == true%>
+         <% @items.each do |item| %>
+               <% if item.folder_id == nil%>
+                  <tr>
+                     <td class="file"></td>
+                     <td> - </td>
+                     <td><%= item.name + " (" + item.attachment.file.filename + ")" %></td>
+                     <td><%= number_to_human_size(item.attachment.size, :precision => 2) %></td>
+                     <td><%= item.updated_at %></td>
+                     <td> - </td>
+                     <td><%= button_to "Download", item.attachment_url, :method => "get", class: "btn btn-success btn-sm" %></div></td>
+                     <% if !current_user.guest? %>
+                        <td><%= button_to "Delete",  item, method: :delete, class: "btn btn-danger btn-sm", data:{confirm: "Are you sure that you wish to delete #{item.attachment.file.filename}?"} %></td>
+                     <% else %>
+                        <td>-</td>
+                     <% end %>
+                  </tr>
+               <% end %>  
+         <% end %>
+      <%end%>
+   </tbody>
+</table>
+<div id="invitation_form" title="Invite others to share" style="display:none"> 
+   <form method="post" action="/home/share" accept-charset="UTF-8">
+      <label for="email_addresses">Enter recipient email addresses here</label><br /> 
+      <%= text_field_tag 'email_addresses', "", :class => 'text ui-widget-content ui-corner-all'%> 
+      <br /><br /> 
+      <label for="message">Optional message</label><br /> 
+      <%= text_area_tag 'message',"",  :class => 'text ui-widget-content ui-corner-all'%> 
+      <%= hidden_field_tag "folder_id" %> 
+   </form>      
+</div>
+
