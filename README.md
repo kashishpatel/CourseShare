@@ -25,6 +25,7 @@ Account Type | Email | Password
 * Fully Featured Admin Panel For Complete Control Over Site Adminstration
 
 ## Technologies
+
 Area | Technology 
 --- | --- | ---
 **Backend** | Ruby on Rails
