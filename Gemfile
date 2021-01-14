@@ -59,7 +59,7 @@ gem 'protected_attributes'
 
 gem 'jquery-rails'
 
-gem 'rails_admin', '~> 1.1.1'
+gem 'rails_admin', '~> 1.4.3'
 
 gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
 
