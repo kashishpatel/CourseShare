@@ -44,7 +44,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 gem 'devise'
 gem 'devise-bootstrap-views'
